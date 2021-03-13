@@ -70,16 +70,33 @@
             <td><%=u.getName()%></td>
             <td><%=u.getSurname()%></td>
             <td><%=u.getNationality().getName()==null?"N/A":u.getNationality().getName()%></td>
-            <td>
+            <td style="width: 1px">
 
-                <button class="btn btn-danger" name="action" value="delete">
+                <form action="userdetails" method="POST">
+                    <input type="hidden" name="id" value="<%=u.getId()%>"/>
+                    <input type="hidden" name="action" value="delete"/>
+                    <button class="btn btn-danger" type="submit" value="delete">
                     <i class="fas fa-trash-alt"></i>
-                </button>
-                <button class="btn btn-secondary" name="action" value="update">
-                    <i class="fas fa-pen-square"></i>
+                    </button>
+                </form>
 
-                </button>
 
+
+            </td>
+            <td style="width: 1px">
+                <form action="userdetails" method="GET">
+                    <input type="hidden" name="id" value="<%=u.getId()%>"/>
+                    <input type="hidden" name="action" value="update"/>
+                    <button class="btn btn-secondary" type="submit"  value="update">
+                        <i class="fas fa-pen-square"></i>
+                    </button>
+                </form>
+
+            </td>
+            <td style="width: 1px">
+                <button class="btn btn-info"  name="action" value="info">
+                    <i class="fas fa-info-circle"></i>
+                </button>
             </td>
         </tr>
         <%}%>

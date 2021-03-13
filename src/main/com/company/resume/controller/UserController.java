@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main.company;
+package main.com.company.resume.controller;
 
 import com.company.dao.inter.UserDaoInter;
 import com.company.main.Context;
@@ -19,21 +19,20 @@ import java.io.IOException;
  *
  * @author Huseyn
  */
-@WebServlet(name = "UserController", urlPatterns = {"/UserController"})
+@WebServlet(name = "UserController", urlPatterns = {"/users"})
 public class UserController extends HttpServlet {
 
     private UserDaoInter userDao = Context.instanceUserDao();
 
+
+
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String name = request.getParameter("name");
-        String surname = request.getParameter("surname");
+            request.getRequestDispatcher("users.jsp").forward(request, response);
 
-
-
-        response.sendRedirect("user.jsp");
+    }
     }
 
-}
+
+
