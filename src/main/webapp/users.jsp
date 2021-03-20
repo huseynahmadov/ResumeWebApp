@@ -94,9 +94,13 @@
 
             </td>
             <td style="width: 1px">
-                <button class="btn btn-info"  name="action" value="info">
+                <form action="users" method="GET">
+                <input type="hidden" name="id" value="<%=u.getId()%>"/>
+                <input type="hidden" name="action" value="info"/>
+                <button class="btn btn-info" value="info">
                     <i class="fas fa-info-circle"></i>
                 </button>
+                </form>
             </td>
         </tr>
         <%}%>

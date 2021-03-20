@@ -43,6 +43,8 @@ public class UserDetailController extends HttpServlet {
             userDao.updateUser(user);
         } else if (action.equals("delete")) {
             userDao.removeUser(id);
+        }else if (action.equals("info")){
+            userDao.getById(id);
         }
         response.sendRedirect("users");
     }
